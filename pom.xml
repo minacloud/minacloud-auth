@@ -4,13 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.minacloud</groupId>
-        <artifactId>minacloud-pom</artifactId>
+        <artifactId>minacloud-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <packaging>pom</packaging>
     <artifactId>minacloud-auth</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
     <name>minacloud-auth</name>
     <description>minacloud-auth</description>
 
@@ -21,6 +20,7 @@
         <module>minacloud-auth-domain</module>
         <module>minacloud-auth-infrastructure</module>
         <module>minacloud-auth-test</module>
+        <module>minacloud-auth-launch</module>
     </modules>
     <dependencyManagement>
         <dependencies>

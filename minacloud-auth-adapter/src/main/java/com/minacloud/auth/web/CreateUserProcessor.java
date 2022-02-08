@@ -15,12 +15,27 @@
  */
 package com.minacloud.auth.web;
 
+import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
+import com.alibaba.cola.exception.Assert;
+import com.minacloud.auth.dto.cmd.UserAddCmd;
 import com.minacloud.common.base.BaseProcessor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.minacloud.common.processor.Processor;
 
-@RestController
-@RequestMapping("user")
-public class UserController   {
+import java.util.Date;
 
+@Processor(value = "/user/add")
+public class CreateUserProcessor extends BaseProcessor<UserAddCmd, Response> {
+
+
+    @Override
+    public void checkParameter(UserAddCmd userAddCmd) {
+        Assert.notNull(userAddCmd.getUserCO());
+    }
+
+    @Override
+    public Response process(UserAddCmd userAddCmd) {
+        System.out.println(userAddCmd.getUserCO());
+        return SingleResponse.of(new Date());
+    }
 }
